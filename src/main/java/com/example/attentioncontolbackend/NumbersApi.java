@@ -25,7 +25,7 @@ public class NumbersApi {
         return array;
     }
     @PostMapping()
-    public void giveNumbers(Object p){
-        System.out.println(p.toString());
+    public void giveNumbers(@RequestBody String p){
+        System.out.println(p);
     }
 }
