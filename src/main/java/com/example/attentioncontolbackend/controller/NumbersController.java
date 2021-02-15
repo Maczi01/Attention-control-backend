@@ -13,11 +13,6 @@ public class NumbersController {
     private int[] array = {1,2,3,4,5};
 
     public NumbersController() {
-//        this.array = new ArrayList<>();
-//        array.add(1);
-//        array.add(2);
-//        array.add(3);
-//        array.add(4);
     }
 
     @GetMapping()
