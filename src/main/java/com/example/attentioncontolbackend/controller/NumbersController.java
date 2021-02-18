@@ -1,9 +1,8 @@
 package com.example.attentioncontolbackend.controller;
 
+import com.example.attentioncontolbackend.service.NumbersService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -12,12 +11,12 @@ public class NumbersController {
 
     private int[] array = {1,2,3,4,5};
 
-    public NumbersController() {
-    }
+    @Autowired
+    private NumbersService numbersService;
 
     @GetMapping()
     public int[] getNumbers(){
-        return array;
+        return numbersService.startGame();
     }
     @PostMapping()
     public void giveNumbers(@RequestBody String p){
