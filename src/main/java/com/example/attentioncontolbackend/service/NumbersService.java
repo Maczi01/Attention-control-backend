@@ -17,4 +17,8 @@ public class NumbersService {
     }
 
 
+    public void checkNumber(String p) {
+        boolean b = game.checkNumber(p);
+        System.out.println(b);
+    }
 }

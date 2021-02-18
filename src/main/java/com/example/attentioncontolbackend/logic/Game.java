@@ -11,7 +11,7 @@ public class Game {
 
     private Random rand = new Random();
     private int[] board = new int[99];
-    private int counter;
+    private int counter = 0;
     private boolean isPlaying;
     private int result;
 
@@ -20,7 +20,7 @@ public class Game {
         for (int i = 0; i < array.length; i++) {
             array[i] = i;
         }
-        System.out.println(Arrays.toString(array));
+//        System.out.println(Arrays.toString(array));
         return array;
     }
 
@@ -32,14 +32,22 @@ public class Game {
             array[randomIndexToSwap] = array[i];
             array[i] = temp;
         }
-        System.out.println(Arrays.toString(array));
         return array;
     }
 
-    public void initGame(){
+    public void initGame() {
         board = generateMixedArray();
         counter = 0;
         result = 0;
         isPlaying = true;
+    }
+
+    public boolean checkNumber(String p) {
+        int givenNumber = Integer.parseInt(p);
+        if (givenNumber == counter) {
+            counter++;
+            return true;
+        }
+        return false;
     }
 }

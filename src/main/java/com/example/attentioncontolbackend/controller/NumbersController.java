@@ -21,5 +21,7 @@ public class NumbersController {
     @PostMapping()
     public void giveNumbers(@RequestBody String p){
         System.out.println(p);
+        numbersService.checkNumber(p);
     }
+
 }
