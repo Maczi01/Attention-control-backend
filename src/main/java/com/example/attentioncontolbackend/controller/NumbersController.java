@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class NumbersController {
 
-    private int[] array = {1,2,3,4,5};
 
     @Autowired
     private NumbersService numbersService;
@@ -19,9 +18,8 @@ public class NumbersController {
         return numbersService.startGame();
     }
     @PostMapping()
-    public void giveNumbers(@RequestBody String p){
-        System.out.println(p);
-        numbersService.checkNumber(p);
+    public boolean giveNumbers(@RequestBody String p){
+        return numbersService.checkNumber(p);
     }
 
 }
