@@ -10,17 +10,17 @@ import java.util.Random;
 public class Game {
 
     private Random rand = new Random();
-    private int[] board = new int[99];
+    private int[] board = new int[100];
     private int counter = 0;
     private boolean isPlaying;
     private int result;
 
     public int[] generateNumbers() {
-        int[] array = new int[99];
+        int[] array = new int[100];
         for (int i = 0; i < array.length; i++) {
             array[i] = i;
         }
-//        System.out.println(Arrays.toString(array));
+        System.out.println(array.length);
         return array;
     }
 
