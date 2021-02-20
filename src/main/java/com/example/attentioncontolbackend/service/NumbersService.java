@@ -12,7 +12,7 @@ public class NumbersService {
         this.game = game;
     }
 
-    public int[] startGame(){
+    public int[] startGame() throws InterruptedException {
         return  game.generateMixedArray();
     }
 

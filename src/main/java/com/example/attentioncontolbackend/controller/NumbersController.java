@@ -13,7 +13,7 @@ public class NumbersController {
     private NumbersService numbersService;
 
     @GetMapping()
-    public int[] getNumbers() {
+    public int[] getNumbers() throws InterruptedException {
         return numbersService.startGame();
     }
 

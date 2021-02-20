@@ -24,7 +24,7 @@ public class Game {
         return array;
     }
 
-    public int[] generateMixedArray() {
+    public int[] generateMixedArray() throws InterruptedException {
         int[] array = generateNumbers();
         for (int i = 0; i < array.length; i++) {
             int randomIndexToSwap = rand.nextInt(array.length);
@@ -32,10 +32,15 @@ public class Game {
             array[randomIndexToSwap] = array[i];
             array[i] = temp;
         }
+        for (int seconds=60  ; seconds >= 0 ; seconds--)
+        {
+            System.out.println(seconds);
+            Thread.sleep(1000);
+        }
         return array;
     }
 
-    public void initGame() {
+    public void initGame() throws InterruptedException {
         board = generateMixedArray();
         counter = 0;
         result = 0;
