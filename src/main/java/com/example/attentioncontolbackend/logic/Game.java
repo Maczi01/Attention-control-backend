@@ -12,11 +12,43 @@ import java.util.Random;
 public class Game {
 
     private Random rand = new Random();
-    private int[] board = new int[100];
+    private int[] board;
     private int counter = 0;
-    private boolean isPlaying;
-    private int result;
     private LocalDateTime endOfGameTime;
+
+
+
+    public Random getRand() {
+        return rand;
+    }
+
+    public void setRand(Random rand) {
+        this.rand = rand;
+    }
+
+    public int[] getBoard() {
+        return board;
+    }
+
+    public void setBoard(int[] board) {
+        this.board = board;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+
+    public LocalDateTime getEndOfGameTime() {
+        return endOfGameTime;
+    }
+
+    public void setEndOfGameTime(LocalDateTime endOfGameTime) {
+        this.endOfGameTime = endOfGameTime;
+    }
 
     public int[] generateNumbers() {
         int[] array = new int[100];
@@ -38,10 +70,9 @@ public class Game {
     }
 
     public void initGame() {
-        board = generateMixedArray();
-        counter = 0;
-        result = 0;
-        endOfGameTime = createEndOfGameTime();
+        this.board = generateMixedArray();
+        this.counter = 0;
+        this.endOfGameTime = createEndOfGameTime();
     }
 
     public boolean checkNumber(String p) {

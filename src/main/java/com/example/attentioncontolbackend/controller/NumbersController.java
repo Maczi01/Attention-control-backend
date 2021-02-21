@@ -1,6 +1,7 @@
 package com.example.attentioncontolbackend.controller;
 
 import com.example.attentioncontolbackend.logic.Game;
+import com.example.attentioncontolbackend.logic.GameTo;
 import com.example.attentioncontolbackend.service.NumbersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
@@ -29,7 +30,7 @@ public class NumbersController {
     }
 
     @GetMapping("/time")
-    public Game object()  {
+    public GameTo object()  {
         return numbersService.initGame();
     }
 
