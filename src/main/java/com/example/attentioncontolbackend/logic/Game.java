@@ -20,22 +20,23 @@ public class Game {
         for (int i = 0; i < array.length; i++) {
             array[i] = i;
         }
-        System.out.println(array.length);
         return array;
     }
 
-    public int[] generateMixedArray() throws InterruptedException {
+    public void countDownTimer() throws InterruptedException {
+        for (int seconds=60  ; seconds >= 0 ; seconds--){
+            System.out.println(seconds);
+            Thread.sleep(1000);
+        }
+    }
+
+    public int[] generateMixedArray(){
         int[] array = generateNumbers();
         for (int i = 0; i < array.length; i++) {
             int randomIndexToSwap = rand.nextInt(array.length);
             int temp = array[randomIndexToSwap];
             array[randomIndexToSwap] = array[i];
             array[i] = temp;
-        }
-        for (int seconds=60  ; seconds >= 0 ; seconds--)
-        {
-            System.out.println(seconds);
-            Thread.sleep(1000);
         }
         return array;
     }
@@ -45,6 +46,7 @@ public class Game {
         counter = 0;
         result = 0;
         isPlaying = true;
+
     }
 
     public boolean checkNumber(String p) {
