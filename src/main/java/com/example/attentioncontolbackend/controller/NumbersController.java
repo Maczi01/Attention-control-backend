@@ -1,5 +1,6 @@
 package com.example.attentioncontolbackend.controller;
 
+import com.example.attentioncontolbackend.logic.Game;
 import com.example.attentioncontolbackend.service.NumbersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
@@ -24,18 +25,12 @@ public class NumbersController {
 
     @GetMapping()
     public int[] getNumbers() throws InterruptedException {
-        timer();
         return numbersService.startGame();
     }
 
     @GetMapping("/time")
-    public boolean timer() throws InterruptedException {
-        System.out.println("Method started");
-        for (int seconds = 5; seconds >= 0; seconds--) {
-            System.out.println(seconds);
-            Thread.sleep(1000);
-        }
-        return true;
+    public Game object()  {
+        return numbersService.initGame();
     }
 
     @PostMapping()

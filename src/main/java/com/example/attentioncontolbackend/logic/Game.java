@@ -3,6 +3,8 @@ package com.example.attentioncontolbackend.logic;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -14,6 +16,7 @@ public class Game {
     private int counter = 0;
     private boolean isPlaying;
     private int result;
+    private LocalDateTime endOfGameTime;
 
     public int[] generateNumbers() {
         int[] array = new int[100];
@@ -21,13 +24,6 @@ public class Game {
             array[i] = i;
         }
         return array;
-    }
-
-    public void countDownTimer() throws InterruptedException {
-        for (int seconds=60  ; seconds >= 0 ; seconds--){
-            System.out.println(seconds);
-            Thread.sleep(1000);
-        }
     }
 
     public int[] generateMixedArray(){
@@ -41,12 +37,11 @@ public class Game {
         return array;
     }
 
-    public void initGame() throws InterruptedException {
+    public void initGame() {
         board = generateMixedArray();
         counter = 0;
         result = 0;
-        isPlaying = true;
-
+        endOfGameTime = createEndOfGameTime();
     }
 
     public boolean checkNumber(String p) {
@@ -57,4 +52,9 @@ public class Game {
         }
         return false;
     }
+
+    public LocalDateTime createEndOfGameTime(){
+        return LocalDateTime.now().plusSeconds(90);
+    }
+
 }
