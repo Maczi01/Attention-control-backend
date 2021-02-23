@@ -4,7 +4,6 @@ public class Number {
 
     private final int index;
 
-
     public Number(int index) {
         this.index = index;
     }

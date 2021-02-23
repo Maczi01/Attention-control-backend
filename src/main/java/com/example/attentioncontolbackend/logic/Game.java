@@ -1,11 +1,8 @@
 package com.example.attentioncontolbackend.logic;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.Random;
 
 @Component
@@ -88,4 +85,11 @@ public class Game {
         return LocalDateTime.now().plusSeconds(90);
     }
 
+    public boolean checkGivenNumber(Number number) {
+        if (number.getIndex() == counter) {
+            counter++;
+            return true;
+        }
+        return false;
+    }
 }

@@ -5,8 +5,6 @@ import com.example.attentioncontolbackend.logic.GameTo;
 import com.example.attentioncontolbackend.logic.Mapper;
 import org.springframework.stereotype.Service;
 
-import java.util.Map;
-
 @Service
 public class NumbersService {
 
@@ -32,5 +30,9 @@ public class NumbersService {
 
     public boolean checkNumber(String p) {
         return game.checkNumber(p);
+    }
+
+    public boolean checkGivenNumber(Number number) {
+        return game.checkGivenNumber(number);
     }
 }
