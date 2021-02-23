@@ -1,14 +1,12 @@
 package com.example.attentioncontolbackend.logic;
 
-import java.time.LocalDateTime;
-
 public class GameTo {
 
     private int[] board;
     private int counter = 0;
-    private LocalDateTime endOfGameTime;
+    private int endOfGameTime;
 
-    public GameTo(int[] board, int counter, LocalDateTime endOfGameTime) {
+    public GameTo(int[] board, int counter, int endOfGameTime) {
         this.board = board;
         this.counter = counter;
         this.endOfGameTime = endOfGameTime;
@@ -30,11 +28,11 @@ public class GameTo {
         this.counter = counter;
     }
 
-    public LocalDateTime getEndOfGameTime() {
+    public int getEndOfGameTime() {
         return endOfGameTime;
     }
 
-    public void setEndOfGameTime(LocalDateTime endOfGameTime) {
+    public void setEndOfGameTime(int endOfGameTime) {
         this.endOfGameTime = endOfGameTime;
     }
 }

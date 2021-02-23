@@ -11,7 +11,7 @@ public class Game {
     private Random rand = new Random();
     private int[] board;
     private int counter = 0;
-    private LocalDateTime endOfGameTime;
+    private int endOfGameTime;
 
 
 
@@ -39,13 +39,13 @@ public class Game {
         this.counter = counter;
     }
 
-    public LocalDateTime getEndOfGameTime() {
-        return endOfGameTime;
+    public int getEndOfGameTime() {
+        return 1;
     }
 
-    public void setEndOfGameTime(LocalDateTime endOfGameTime) {
-        this.endOfGameTime = endOfGameTime;
-    }
+//    public void setEndOfGameTime(LocalDateTime endOfGameTime) {
+//        this.endOfGameTime = endOfGameTime;
+//    }
 
     public int[] generateNumbers() {
         int[] array = new int[100];
@@ -69,7 +69,7 @@ public class Game {
     public void initGame() {
         this.board = generateMixedArray();
         this.counter = 0;
-        this.endOfGameTime = createEndOfGameTime();
+        this.endOfGameTime = 90;
     }
 
     public boolean checkNumber(String p) {
@@ -85,8 +85,8 @@ public class Game {
         return LocalDateTime.now().plusSeconds(90);
     }
 
-    public boolean checkGivenNumber(Number number) {
-        if (number.getIndex() == counter) {
+    public boolean checkGivenNumber(NumberTo numberTo) {
+        if (numberTo.getIndex() == counter) {
             counter++;
             return true;
         }
