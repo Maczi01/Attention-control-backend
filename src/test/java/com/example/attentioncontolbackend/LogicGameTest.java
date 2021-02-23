@@ -16,7 +16,7 @@ public class LogicGameTest {
 
     @Test
     @DisplayName("Array length should be equal 100")
-    void arrayLengthShouldBe100() throws Exception {
+    void arrayLengthShouldBe100() {
         // given
         int[] array = game.generateMixedArray();
 
@@ -39,7 +39,7 @@ public class LogicGameTest {
 
     @Test
     @DisplayName("Numbers in array are lower than 100")
-    void numbersInArrayShouldBeLowerThan100() throws Exception {
+    void numbersInArrayShouldBeLowerThan100(){
         // given
         int[] array = game.generateMixedArray();
 
@@ -51,7 +51,7 @@ public class LogicGameTest {
 
     @Test
     @DisplayName("Numbers in array are bigger than 0")
-    void numbersInArrayShouldBeBigerThan0() throws Exception {
+    void numbersInArrayShouldBeBigerThan0() {
         // given
         int[] array = game.generateMixedArray();
 
@@ -59,6 +59,18 @@ public class LogicGameTest {
 
         // when // then
         assertThat(filteredArray.length).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("Array should contain zero")
+    void arrayShouldContainZer() {
+        // given
+        int[] array = game.generateMixedArray();
+
+        long count = IntStream.of(array).filter(e -> e == 0).count();
+
+        // when // then
+        assertThat(count).isEqualTo(1);
     }
 
 }
