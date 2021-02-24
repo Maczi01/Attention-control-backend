@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/api")
-@CrossOrigin
 public class NumbersController {
 
 //
@@ -44,6 +44,11 @@ public class NumbersController {
         boolean b = numbersService.checkGivenNumber(numberTo);
         System.out.println(b);
         return b;
+    }
+
+    @GetMapping("/results")
+    public Result getResult()  {
+        return numbersService.getResult();
     }
 
 }

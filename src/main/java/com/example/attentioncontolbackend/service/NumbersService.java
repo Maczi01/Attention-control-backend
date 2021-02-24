@@ -1,9 +1,6 @@
 package com.example.attentioncontolbackend.service;
 
-import com.example.attentioncontolbackend.logic.Game;
-import com.example.attentioncontolbackend.logic.GameTo;
-import com.example.attentioncontolbackend.logic.Mapper;
-import com.example.attentioncontolbackend.logic.NumberTo;
+import com.example.attentioncontolbackend.logic.*;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -35,5 +32,9 @@ public class NumbersService {
 //TODO use transfer object
     public boolean checkGivenNumber(NumberTo numberTo) {
         return game.checkGivenNumber(numberTo);
+    }
+
+    public int getResult() {
+        return game.getCounter();
     }
 }
