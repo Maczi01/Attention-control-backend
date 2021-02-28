@@ -29,7 +29,6 @@ public class NumbersService {
     public boolean checkNumber(String p) {
         return game.checkNumber(p);
     }
-//TODO use transfer object
     public boolean checkGivenNumber(NumberTo numberTo) {
         return game.checkGivenNumber(numberTo);
     }
