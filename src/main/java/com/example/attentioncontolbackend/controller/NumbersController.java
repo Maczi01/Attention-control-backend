@@ -47,7 +47,7 @@ public class NumbersController {
     }
 
     @GetMapping("/results")
-    public Result getResult()  {
+    public int getResult()  {
         return numbersService.getResult();
     }
 

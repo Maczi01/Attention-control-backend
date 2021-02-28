@@ -2,7 +2,6 @@ package com.example.attentioncontolbackend.logic;
 
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
 import java.util.Random;
 
 @Component
@@ -11,7 +10,7 @@ public class Game {
     private Random rand = new Random();
     private int[] board;
     private int counter = 0;
-    private int endOfGameTime;
+    private int endOfGameTime = 10;
 
 
 
@@ -19,33 +18,20 @@ public class Game {
         return rand;
     }
 
-    public void setRand(Random rand) {
-        this.rand = rand;
-    }
-
     public int[] getBoard() {
         return board;
     }
 
-    public void setBoard(int[] board) {
-        this.board = board;
-    }
 
     public int getCounter() {
         return counter;
     }
 
-    public void setCounter(int counter) {
-        this.counter = counter;
-    }
 
     public int getEndOfGameTime() {
         return 1;
     }
 
-//    public void setEndOfGameTime(LocalDateTime endOfGameTime) {
-//        this.endOfGameTime = endOfGameTime;
-//    }
 
     public int[] generateNumbers() {
         int[] array = new int[100];
@@ -69,7 +55,7 @@ public class Game {
     public void initGame() {
         this.board = generateMixedArray();
         this.counter = 0;
-        this.endOfGameTime = 90;
+        this.endOfGameTime = 10;
     }
 
     public boolean checkNumber(String p) {
@@ -79,10 +65,6 @@ public class Game {
             return true;
         }
         return false;
-    }
-
-    public LocalDateTime createEndOfGameTime(){
-        return LocalDateTime.now().plusSeconds(90);
     }
 
     public boolean checkGivenNumber(NumberTo numberTo) {
