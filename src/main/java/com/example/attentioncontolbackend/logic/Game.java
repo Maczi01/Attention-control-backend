@@ -24,7 +24,7 @@ public class Game {
 
 
     public int getCounter() {
-        return counter;
+        return this.counter;
     }
 
 
