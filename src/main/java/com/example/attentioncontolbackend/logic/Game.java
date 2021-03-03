@@ -55,7 +55,7 @@ public class Game {
     public void initGame() {
         this.board = generateMixedArray();
         this.counter = 0;
-        this.endOfGameTime = 10;
+        this.endOfGameTime = 111;
     }
 
     public boolean checkNumber(String p) {
