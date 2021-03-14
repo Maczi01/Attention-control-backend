@@ -24,7 +24,7 @@ public class NumbersController {
     private NumbersService numbersService;
 
     @GetMapping()
-    public int[] getNumbers() throws InterruptedException {
+    public int[] getNumbers()  {
         return numbersService.startGame();
     }
 

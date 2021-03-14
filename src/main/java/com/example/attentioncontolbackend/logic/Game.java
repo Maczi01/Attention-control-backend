@@ -13,7 +13,6 @@ public class Game {
     private int endOfGameTime = 10;
 
 
-
     public Random getRand() {
         return rand;
     }
@@ -29,7 +28,7 @@ public class Game {
 
 
     public int getEndOfGameTime() {
-        return 1;
+        return endOfGameTime;
     }
 
 
@@ -55,7 +54,7 @@ public class Game {
     public void initGame() {
         this.board = generateMixedArray();
         this.counter = 0;
-        this.endOfGameTime = 111;
+        this.endOfGameTime = 10;
     }
 
     public boolean checkNumber(String p) {
