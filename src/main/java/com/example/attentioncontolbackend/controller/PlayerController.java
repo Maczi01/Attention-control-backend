@@ -32,6 +32,7 @@ public class PlayerController {
         int result = numbersService.getResult();
         String name = player.getName();
         playerService.addNewPlayer(new Player(1L, name, result));
+        System.out.println("Players:" + playerService.getAllPlayers());
     }
 
 
