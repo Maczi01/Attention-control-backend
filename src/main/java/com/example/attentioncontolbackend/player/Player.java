@@ -38,4 +38,13 @@ public class Player {
     public void setResult(int result) {
         this.result = result;
     }
+
+    @Override
+    public String toString() {
+        return "Player" +
+                "Id: " + Id +
+                ", name:'" + name + '\'' +
+                ", result:" + result +
+                '}';
+    }
 }

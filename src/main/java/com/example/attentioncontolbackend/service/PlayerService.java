@@ -1,19 +1,20 @@
 package com.example.attentioncontolbackend.service;
 
 import com.example.attentioncontolbackend.player.Player;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class PlayerService {
 
     private List<Player> players;
-    private NumbersService numbersService;
 
-    public PlayerService(List<Player> players, NumbersService numbersService) {
-        this.players = players;
-        this.numbersService = numbersService;
+    @Autowired
+    public PlayerService() {
+        this.players = new ArrayList<>();
         players.add(new Player(1L, "Maciej", 11));
         players.add(new Player(2L, "Mick", 12));
         players.add(new Player(3L, "Michal", 90));
@@ -23,10 +24,8 @@ public class PlayerService {
         return players;
     }
 
-    public void addNewPlayer(Player player){
-        int numbersServiceResult = numbersService.getResult();
-        player.getName();
-        players.add(player);
+    public void addNewPlayer(String name, int result){
+        players.add(new Player(1L, name, result));
     }
 
 
