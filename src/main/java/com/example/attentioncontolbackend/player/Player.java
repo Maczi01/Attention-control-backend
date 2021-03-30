@@ -10,7 +10,7 @@ public class Player {
     }
 
     public Player(Long id, String name, int result) {
-        Id = id;
+        Id = 1L;
         this.name = name;
         this.result = result;
     }

@@ -23,9 +23,9 @@ public class PlayerController {
     }
 
     @PostMapping()
-    public void addPlayer(String name, int result) {
-        playerService.addNewPlayer(name, result);
-        System.out.println("Players:" + playerService.getAllPlayers());
+    public void addPlayer(@RequestBody Player player) {
+        playerService.addNewPlayer(player);
+//        System.out.println( + " " + result);
     }
 
 

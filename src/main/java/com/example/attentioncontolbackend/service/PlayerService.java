@@ -24,8 +24,9 @@ public class PlayerService {
         return players;
     }
 
-    public void addNewPlayer(String name, int result){
-        players.add(new Player(1L, name, result));
+    public void addNewPlayer(Player player){
+//        players.add(new Player(1L, name, result));
+        System.out.println(player);
     }
 
 
