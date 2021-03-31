@@ -1,6 +1,6 @@
 package com.example.attentioncontolbackend.controller;
 
-import com.example.attentioncontolbackend.player.Player;
+import com.example.attentioncontolbackend.player.PlayerTo;
 import com.example.attentioncontolbackend.service.PlayerService;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,13 +18,13 @@ public class PlayerController {
     }
 
     @GetMapping()
-    public List<Player> getAllPlayers() {
+    public List<PlayerTo> getAllPlayers() {
         return playerService.getAllPlayers();
     }
 
     @PostMapping()
-    public void addPlayer(@RequestBody Player player) {
-        playerService.addNewPlayer(player);
+    public PlayerTo addPlayer(@RequestBody PlayerTo playerTo) {
+        return playerService.addNewPlayer(playerTo);
 //        System.out.println( + " " + result);
     }
 

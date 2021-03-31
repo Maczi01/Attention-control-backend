@@ -1,5 +1,8 @@
 package com.example.attentioncontolbackend.player;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Mapper {
 
     public PlayerTo map2To(Player player) {

@@ -1,7 +1,8 @@
 package com.example.attentioncontolbackend.service;
 
+import com.example.attentioncontolbackend.player.Mapper;
 import com.example.attentioncontolbackend.player.Player;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.attentioncontolbackend.player.PlayerTo;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -10,23 +11,30 @@ import java.util.List;
 @Service
 public class PlayerService {
 
-    private List<Player> players;
+    private List<PlayerTo> players;
+    private Mapper mapper;
+    private PlayerRepository playerRepository;
 
-    @Autowired
-    public PlayerService() {
-        this.players = new ArrayList<>();
-        players.add(new Player(1L, "Maciej", 11));
-        players.add(new Player(2L, "Mick", 12));
-        players.add(new Player(3L, "Michal", 90));
+    public PlayerService(Mapper mapper, PlayerRepository playerRepository) {
+        players = new ArrayList<>();
+        players.add(new PlayerTo(1L, "Maciej", 11));
+        players.add(new PlayerTo(2L, "Mick", 12));
+        players.add(new PlayerTo(3L, "Michal", 90));
+        this.mapper = mapper;
+        this.playerRepository = playerRepository;
     }
 
-    public List<Player> getAllPlayers(){
+
+    public List<PlayerTo> getAllPlayers() {
         return players;
     }
 
-    public void addNewPlayer(Player player){
-//        players.add(new Player(1L, name, result));
-        System.out.println(player);
+    public PlayerTo addNewPlayer(PlayerTo playerTo) {
+        Player playerEntity = mapper.map2Entity(playerTo);
+        Player savedPlayer = playerRepository.save(playerEntity);
+        PlayerTo playerTo1 = mapper.map2To(savedPlayer);
+        players.add(playerTo1);
+        return playerTo1;
     }
 
 
