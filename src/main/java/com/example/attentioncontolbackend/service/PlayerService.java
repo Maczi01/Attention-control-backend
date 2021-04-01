@@ -13,7 +13,6 @@ public class PlayerService implements PlayerRepository {
 
     private List<PlayerTo> players;
     private PlayerMapper playerMapper;
-    private PlayerRepository playerRepository;
 
     @Autowired
     public PlayerService(PlayerMapper playerMapper) {
@@ -22,7 +21,6 @@ public class PlayerService implements PlayerRepository {
 //        players.add(new PlayerTo(2L, "Mick", 12));
 //        players.add(new PlayerTo(3L, "Michal", 90));
         this.playerMapper = playerMapper;
-        this.playerRepository = playerRepository;
     }
 
     public List<PlayerTo> getAllPlayers() {
@@ -31,7 +29,7 @@ public class PlayerService implements PlayerRepository {
 
     public PlayerTo addNewPlayer(PlayerTo playerTo) {
 //        Player playerEntity = playerMapper.map2Entity(playerTo);
-        playerRepository.save(playerTo);
+        save(playerTo);
 //        PlayerTo playerTo1 = playerMapper.map2To(savedPlayer);
         System.out.println(playerTo);
         return playerTo;
