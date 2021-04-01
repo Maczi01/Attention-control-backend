@@ -1,9 +1,10 @@
 package com.example.attentioncontolbackend.service;
 
-import com.example.attentioncontolbackend.player.Player;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.attentioncontolbackend.player.PlayerTo;
+import org.springframework.stereotype.Repository;
 
-public interface PlayerRepository extends JpaRepository<Player, Long> {
+@Repository
+public interface PlayerRepository  {
 
-
+    void save(PlayerTo playerTo);
 }

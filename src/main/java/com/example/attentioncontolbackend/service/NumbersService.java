@@ -7,28 +7,26 @@ import org.springframework.stereotype.Service;
 public class NumbersService {
 
     private final Game game;
-    private Mapper mapper;
+    private GameMapper gameMapper;
 
-    public NumbersService(Game game, Mapper mapper) {
+    public NumbersService(Game game, GameMapper gameMapper) {
         this.game = game;
-        this.mapper = mapper;
+        this.gameMapper = gameMapper;
     }
-
 
     public GameTo initGame() {
         this.game.initGame();
-        return mapper.map(game);
+        return gameMapper.map(game);
     }
 
-
-    public int[] startGame()  {
-        return  game.generateMixedArray();
+    public int[] startGame() {
+        return game.generateMixedArray();
     }
-
 
     public boolean checkNumber(String p) {
         return game.checkNumber(p);
     }
+
     public boolean checkGivenNumber(NumberTo numberTo) {
         return game.checkGivenNumber(numberTo);
     }

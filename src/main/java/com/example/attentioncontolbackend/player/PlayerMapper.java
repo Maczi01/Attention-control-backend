@@ -3,7 +3,7 @@ package com.example.attentioncontolbackend.player;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Mapper {
+public class PlayerMapper {
 
     public PlayerTo map2To(Player player) {
         if (player != null) {

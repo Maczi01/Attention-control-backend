@@ -20,8 +20,13 @@ public class NumbersController {
 //
 //    boardem(wygenerowanym),i co najwazniejsze CZASEM!!zakonczenia!
 
-    @Autowired
+
     private NumbersService numbersService;
+
+    @Autowired
+    public NumbersController(NumbersService numbersService) {
+        this.numbersService = numbersService;
+    }
 
     @GetMapping()
     public int[] getNumbers()  {

@@ -2,6 +2,7 @@ package com.example.attentioncontolbackend.controller;
 
 import com.example.attentioncontolbackend.player.PlayerTo;
 import com.example.attentioncontolbackend.service.PlayerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public class PlayerController {
 
     private PlayerService playerService;
 
+    @Autowired
     public PlayerController(PlayerService playerService) {
         this.playerService = playerService;
     }
