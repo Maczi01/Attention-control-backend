@@ -10,6 +10,9 @@ public class Result {
     private int score;
     private LocalDate date;
 
+    public Result() {
+    }
+
     public Result(Long id, String playerName, int score, LocalDate date) {
         Id = id;
         this.playerName = playerName;

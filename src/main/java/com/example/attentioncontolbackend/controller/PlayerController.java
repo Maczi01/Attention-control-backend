@@ -1,7 +1,7 @@
 package com.example.attentioncontolbackend.controller;
 
-import com.example.attentioncontolbackend.player.PlayerTo;
-import com.example.attentioncontolbackend.service.PlayerService;
+import com.example.attentioncontolbackend.player.ResultTo;
+import com.example.attentioncontolbackend.service.ResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,21 +12,21 @@ import java.util.List;
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class PlayerController {
 
-    private PlayerService playerService;
+    private ResultService resultService;
 
     @Autowired
-    public PlayerController(PlayerService playerService) {
-        this.playerService = playerService;
+    public PlayerController(ResultService resultService) {
+        this.resultService = resultService;
     }
 
     @GetMapping()
-    public List<PlayerTo> getAllPlayers() {
-        return playerService.getAllPlayers();
+    public List<ResultTo> getAllPlayers() {
+        return resultService.getAllPlayers();
     }
 
     @PostMapping()
-    public PlayerTo addPlayer(@RequestBody PlayerTo playerTo) {
-        return playerService.addNewPlayer(playerTo);
+    public ResultTo addPlayer(@RequestBody ResultTo resultTo) {
+        return resultService.addNewPlayer(resultTo);
 //        System.out.println( + " " + result);
     }
 
