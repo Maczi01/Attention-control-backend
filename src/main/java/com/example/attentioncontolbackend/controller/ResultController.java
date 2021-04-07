@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/players")
+@RequestMapping("/api/results")
 @CrossOrigin(origins = "*", maxAge = 3600)
-public class PlayerController {
+public class ResultController {
 
     private ResultService resultService;
 
     @Autowired
-    public PlayerController(ResultService resultService) {
+    public ResultController(ResultService resultService) {
         this.resultService = resultService;
     }
 

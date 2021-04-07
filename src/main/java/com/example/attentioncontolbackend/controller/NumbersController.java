@@ -11,16 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api")
 public class NumbersController {
 
-//
-//    Apka musi
-//    wysylac do
-//    frontu obiekt "gra"
-//    z punktacją
-//    zero,
-//
-//    boardem(wygenerowanym),i co najwazniejsze CZASEM!!zakonczenia!
-
-
     private NumbersService numbersService;
 
     @Autowired
@@ -51,9 +41,6 @@ public class NumbersController {
         return b;
     }
 
-    @GetMapping("/results")
-    public int getResult()  {
-        return numbersService.getResult();
-    }
+
 
 }
