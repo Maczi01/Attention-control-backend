@@ -41,6 +41,11 @@ public class NumbersController {
         return b;
     }
 
+    @GetMapping("/score")
+    public int getScore(){
+        return numbersService.getResult();
+    }
+
 
 
 }

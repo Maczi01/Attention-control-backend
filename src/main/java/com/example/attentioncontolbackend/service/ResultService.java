@@ -40,4 +40,8 @@ public class ResultService implements ResultRepository {
     public void save(ResultTo resultTo) {
         players.add(resultTo);
     }
+
+    public void deleteResult(long id){
+        players.remove(id);
+    }
 }
