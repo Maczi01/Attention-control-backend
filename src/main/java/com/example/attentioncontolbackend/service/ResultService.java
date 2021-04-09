@@ -18,9 +18,9 @@ public class ResultService implements ResultRepository {
     @Autowired
     public ResultService(ResultMapper resultMapper) {
         players = new ArrayList<>();
-        players.add(new ResultTo(1L, "Maciej", 11, LocalDate.of(2020, 12, 12)));
+        players.add(new ResultTo(1L, "Jack", 11, LocalDate.of(2020, 12, 12)));
         players.add(new ResultTo(2L, "Mick", 12, LocalDate.now()));
-        players.add(new ResultTo(3L, "Michal", 90, LocalDate.now().plusDays(1)));
+        players.add(new ResultTo(3L, "Dave", 90, LocalDate.now().plusDays(1)));
         this.resultMapper = resultMapper;
     }
 

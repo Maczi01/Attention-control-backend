@@ -14,7 +14,7 @@ public class Result {
     }
 
     public Result(Long id, String playerName, int score, LocalDate date) {
-        Id = id;
+        this.Id = id;
         this.playerName = playerName;
         this.score = score;
         this.date = date;
