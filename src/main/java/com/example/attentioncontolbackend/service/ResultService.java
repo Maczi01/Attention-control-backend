@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ResultService implements ResultRepository {
@@ -42,6 +43,7 @@ public class ResultService implements ResultRepository {
     }
 
     public void deleteResult(long id){
-        players.remove(id);
+        Optional<ResultTo> optionalResultTo = players.stream().filter(p -> p.getId() == id).findFirst();
+        players.remove(optionalResultTo.get());
     }
 }
