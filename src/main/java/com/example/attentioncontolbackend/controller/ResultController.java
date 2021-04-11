@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/results/")
+@RequestMapping("/api/results")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class ResultController {
 
@@ -21,7 +21,7 @@ public class ResultController {
 
     @GetMapping()
     public List<ResultTo> getAllPlayers() {
-        return resultService.getAllPlayers();
+        return resultService.getAllResults();
     }
 
     @PostMapping()
@@ -30,11 +30,10 @@ public class ResultController {
 //        System.out.println( + " " + result);
     }
 
-    @DeleteMapping()
+    @DeleteMapping("/{id}")
     public void deleteResult(@PathVariable Long id){
         System.out.println(id);
         resultService.deleteResult(id);
     }
-
 
 }

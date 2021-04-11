@@ -50,4 +50,14 @@ public class ResultTo {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+
+    @Override
+    public String toString() {
+        return "ResultTo{" +
+                "Id=" + Id +
+                ", playerName='" + playerName + '\'' +
+                ", score=" + score +
+                ", date=" + date +
+                '}';
+    }
 }

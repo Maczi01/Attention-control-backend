@@ -13,20 +13,20 @@ import java.util.Optional;
 @Service
 public class ResultService implements ResultRepository {
 
-    private List<ResultTo> players;
+    private List<ResultTo> results;
     private ResultMapper resultMapper;
 
     @Autowired
     public ResultService(ResultMapper resultMapper) {
-        players = new ArrayList<>();
-        players.add(new ResultTo(1L, "Jack", 11, LocalDate.of(2020, 12, 12)));
-        players.add(new ResultTo(2L, "Mick", 12, LocalDate.now()));
-        players.add(new ResultTo(3L, "Dave", 90, LocalDate.now().plusDays(1)));
+        results = new ArrayList<>();
+        results.add(new ResultTo(1L, "Jack", 11, LocalDate.of(2020, 12, 12)));
+        results.add(new ResultTo(2L, "Mick", 12, LocalDate.now()));
+        results.add(new ResultTo(3L, "Dave", 90, LocalDate.now().plusDays(1)));
         this.resultMapper = resultMapper;
     }
 
-    public List<ResultTo> getAllPlayers() {
-        return players;
+    public List<ResultTo> getAllResults() {
+        return results;
     }
 
     public ResultTo addNewPlayer(ResultTo resultTo) {
@@ -39,11 +39,11 @@ public class ResultService implements ResultRepository {
 
     @Override
     public void save(ResultTo resultTo) {
-        players.add(resultTo);
+        results.add(resultTo);
     }
 
-    public void deleteResult(long id){
-        Optional<ResultTo> optionalResultTo = players.stream().filter(p -> p.getId() == id).findFirst();
-        players.remove(optionalResultTo.get());
+    public boolean deleteResult(long id){
+        Optional<ResultTo> optionalCar = results.stream().filter(e -> e.getId() == id).findFirst();
+        return results.remove(optionalCar.get());
     }
 }
