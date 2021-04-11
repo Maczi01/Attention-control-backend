@@ -31,9 +31,9 @@ public class ResultController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteResult(@PathVariable Long id){
+    public void deleteResult(@PathVariable String id){
         System.out.println(id);
-        resultService.deleteResult(id);
+        resultService.deleteResult(Long.valueOf(id));
     }
 
 }
