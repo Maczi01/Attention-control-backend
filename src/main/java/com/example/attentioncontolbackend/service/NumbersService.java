@@ -1,6 +1,7 @@
 package com.example.attentioncontolbackend.service;
 
 import com.example.attentioncontolbackend.logic.*;
+import com.example.attentioncontolbackend.service.exception.WrongNumberException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,7 +24,11 @@ public class NumbersService {
         return game.generateMixedArray();
     }
 
-    public boolean checkNumber(String p) {
+    public boolean checkNumber(String p) throws WrongNumberException {
+        Integer nubmerToCheck = Integer.valueOf(p);
+        if (nubmerToCheck<0 || nubmerToCheck>99){
+            throw new WrongNumberException(nubmerToCheck);
+        }
         return game.checkNumber(p);
     }
 
