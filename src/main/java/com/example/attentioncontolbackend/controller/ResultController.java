@@ -1,6 +1,6 @@
 package com.example.attentioncontolbackend.controller;
 
-import com.example.attentioncontolbackend.player.ResultTo;
+import com.example.attentioncontolbackend.result.ResultTo;
 import com.example.attentioncontolbackend.service.ResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +31,7 @@ public class ResultController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteResult(@PathVariable String id){
+    public void deleteResult(@PathVariable String id) {
         System.out.println(id);
         resultService.deleteResult(Long.valueOf(id));
     }

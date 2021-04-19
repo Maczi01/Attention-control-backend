@@ -1,6 +1,7 @@
-package com.example.attentioncontolbackend.player;
+package com.example.attentioncontolbackend.result;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Result {
@@ -9,15 +10,17 @@ public class Result {
     private String playerName;
     private int score;
     private LocalDate date;
+    private int [] gameboard;
 
     public Result() {
     }
 
-    public Result(Long id, String playerName, int score, LocalDate date) {
-        this.Id = id;
+    public Result(Long id, String playerName, int score, LocalDate date, int[] gameboard) {
+        Id = id;
         this.playerName = playerName;
         this.score = score;
         this.date = date;
+        this.gameboard = gameboard;
     }
 
     public Long getId() {
@@ -52,6 +55,14 @@ public class Result {
         this.date = date;
     }
 
+    public int[] getGameboard() {
+        return gameboard;
+    }
+
+    public void setGameboard(int[] gameboard) {
+        this.gameboard = gameboard;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -60,12 +71,15 @@ public class Result {
         return score == result.score &&
                 Objects.equals(Id, result.Id) &&
                 Objects.equals(playerName, result.playerName) &&
-                Objects.equals(date, result.date);
+                Objects.equals(date, result.date) &&
+                Arrays.equals(gameboard, result.gameboard);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id, playerName, score, date);
+        int result = Objects.hash(Id, playerName, score, date);
+        result = 31 * result + Arrays.hashCode(gameboard);
+        return result;
     }
 
     @Override
@@ -75,6 +89,7 @@ public class Result {
                 ", playerName='" + playerName + '\'' +
                 ", score=" + score +
                 ", date=" + date +
+                ", gameboard=" + Arrays.toString(gameboard) +
                 '}';
     }
 }

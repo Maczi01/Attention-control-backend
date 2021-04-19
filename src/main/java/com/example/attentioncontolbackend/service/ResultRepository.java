@@ -1,6 +1,6 @@
 package com.example.attentioncontolbackend.service;
 
-import com.example.attentioncontolbackend.player.ResultTo;
+import com.example.attentioncontolbackend.result.ResultTo;
 import org.springframework.stereotype.Repository;
 
 @Repository

@@ -1,4 +1,4 @@
-package com.example.attentioncontolbackend.player;
+package com.example.attentioncontolbackend.result;
 
 import org.springframework.stereotype.Component;
 

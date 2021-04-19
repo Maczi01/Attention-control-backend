@@ -1,7 +1,7 @@
 package com.example.attentioncontolbackend.service;
 
-import com.example.attentioncontolbackend.player.ResultMapper;
-import com.example.attentioncontolbackend.player.ResultTo;
+import com.example.attentioncontolbackend.result.ResultMapper;
+import com.example.attentioncontolbackend.result.ResultTo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +42,7 @@ public class ResultService implements ResultRepository {
         results.add(resultTo);
     }
 
-    public boolean deleteResult(long id){
+    public boolean deleteResult(long id) {
         Optional<ResultTo> optionalCar = results.stream().filter(e -> e.getId() == id).findFirst();
         return results.remove(optionalCar.get());
     }
