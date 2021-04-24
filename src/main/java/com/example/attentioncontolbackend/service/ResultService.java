@@ -16,7 +16,8 @@ public class ResultService implements ResultRepository {
     private List<ResultTo> results;
     private ResultMapper resultMapper;
 
-    Integer[] table = {1,2,3,4,5,5,6,7,7,8,8,9,9};
+    Integer[] table = {1, 2, 3, 4, 5, 5, 6, 7, 7, 8, 8, 9, 9};
+
     @Autowired
     public ResultService(ResultMapper resultMapper) {
         results = new ArrayList<>();
@@ -49,9 +50,10 @@ public class ResultService implements ResultRepository {
     }
 
     public ResultTo getPlayerById(Long id) {
-        Optional<ResultTo> resultTo = results.stream().filter(r -> r.getId() == id).findFirst();
-        System.out.println(resultTo);
+        Long aLong = Long.valueOf(id);
+        Optional<ResultTo> optionalResultTo = results.stream().filter(e -> e.getId() == aLong).findFirst();
+        System.out.println(optionalResultTo);
 //        return resultTo.get();
-        return results.get(0);
+        return optionalResultTo.get();
     }
 }
