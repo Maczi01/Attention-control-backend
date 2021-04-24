@@ -25,7 +25,7 @@ public class ResultController {
     }
 
     @GetMapping("/{id}")
-    public ResultTo getPlayer(Long id) {
+    public ResultTo getPlayer(Integer id) {
         return resultService.getPlayerById(id);
     }
 

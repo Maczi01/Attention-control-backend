@@ -21,9 +21,9 @@ public class ResultService implements ResultRepository {
     @Autowired
     public ResultService(ResultMapper resultMapper) {
         results = new ArrayList<>();
-        results.add(new ResultTo(1L, "Jack", 11, LocalDate.now(), table));
-        results.add(new ResultTo(2L, "Mick", 12, LocalDate.now(), table));
-        results.add(new ResultTo(3L, "Dave", 90, LocalDate.now().plusDays(1), table));
+        results.add(new ResultTo("Jack", 11, LocalDate.now(), table));
+        results.add(new ResultTo("Mick", 12, LocalDate.now(), table));
+        results.add(new ResultTo("Dave", 90, LocalDate.now().plusDays(1), table));
         this.resultMapper = resultMapper;
     }
 
@@ -49,11 +49,11 @@ public class ResultService implements ResultRepository {
         return results.remove(optionalResultTo.get());
     }
 
-    public ResultTo getPlayerById(Long id) {
-        Long aLong = Long.valueOf(id);
-        Optional<ResultTo> optionalResultTo = results.stream().filter(e -> e.getId() == aLong).findFirst();
-        System.out.println(optionalResultTo);
+    public ResultTo getPlayerById(Integer id) {
+//        Long aLong = Long.valueOf(id);
+//        Optional<ResultTo> optionalResultTo = results.stream().filter(e -> e.getId() == aLong).findFirst();
+//        System.out.println(optionalResultTo);
 //        return resultTo.get();
-        return optionalResultTo.get();
+        return results.get(0);
     }
 }

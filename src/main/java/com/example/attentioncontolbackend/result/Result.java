@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Result {
 
-    private Long Id;
+    private Integer Id;
     private String playerName;
     private int score;
     private LocalDate date;
@@ -15,7 +15,7 @@ public class Result {
     public Result() {
     }
 
-    public Result(Long id, String playerName, int score, LocalDate date, int[] gameboard) {
+    public Result(Integer id, String playerName, int score, LocalDate date, int[] gameboard) {
         Id = id;
         this.playerName = playerName;
         this.score = score;
@@ -23,11 +23,11 @@ public class Result {
         this.gameboard = gameboard;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return Id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         Id = id;
     }
 
