@@ -24,10 +24,15 @@ public class ResultController {
         return resultService.getAllResults();
     }
 
+    @GetMapping("/{id}")
+    public ResultTo getPlayer(Long id) {
+        return resultService.getPlayerById(id);
+    }
+
     @PostMapping()
     public ResultTo addPlayer(@RequestBody ResultTo resultTo) {
+        System.out.println(resultTo);
         return resultService.addNewPlayer(resultTo);
-//        System.out.println( + " " + result);
     }
 
     @DeleteMapping("/{id}")

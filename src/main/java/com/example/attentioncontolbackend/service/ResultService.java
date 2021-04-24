@@ -16,12 +16,13 @@ public class ResultService implements ResultRepository {
     private List<ResultTo> results;
     private ResultMapper resultMapper;
 
+    Integer[] table = {1,2,3,4,5,5,6,7,7,8,8,9,9};
     @Autowired
     public ResultService(ResultMapper resultMapper) {
         results = new ArrayList<>();
-        results.add(new ResultTo(1L, "Jack", 11, LocalDate.of(2020, 12, 12)));
-        results.add(new ResultTo(2L, "Mick", 12, LocalDate.now()));
-        results.add(new ResultTo(3L, "Dave", 90, LocalDate.now().plusDays(1)));
+        results.add(new ResultTo(1L, "Jack", 11, LocalDate.now(), table));
+        results.add(new ResultTo(2L, "Mick", 12, LocalDate.now(), table));
+        results.add(new ResultTo(3L, "Dave", 90, LocalDate.now().plusDays(1), table));
         this.resultMapper = resultMapper;
     }
 
@@ -43,7 +44,14 @@ public class ResultService implements ResultRepository {
     }
 
     public boolean deleteResult(long id) {
-        Optional<ResultTo> optionalCar = results.stream().filter(e -> e.getId() == id).findFirst();
-        return results.remove(optionalCar.get());
+        Optional<ResultTo> optionalResultTo = results.stream().filter(e -> e.getId() == id).findFirst();
+        return results.remove(optionalResultTo.get());
+    }
+
+    public ResultTo getPlayerById(Long id) {
+        Optional<ResultTo> resultTo = results.stream().filter(r -> r.getId() == id).findFirst();
+        System.out.println(resultTo);
+//        return resultTo.get();
+        return results.get(0);
     }
 }
