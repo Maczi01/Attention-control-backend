@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class ResultTo {
 
-    private Integer Id = 3;
+    private Integer id;
     private String playerName;
     private int score;
     private LocalDate date;
@@ -15,8 +15,8 @@ public class ResultTo {
     public ResultTo() {
     }
 
-    public ResultTo(String playerName, int score, LocalDate date, Integer[] gameboard) {
-        Id = Id++;
+    public ResultTo(Integer id, String playerName, int score, LocalDate date, Integer[] gameboard) {
+        this.id = id;
         this.playerName = playerName;
         this.score = score;
         this.date = date;
@@ -24,11 +24,11 @@ public class ResultTo {
     }
 
     public Integer getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Integer id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getPlayerName() {
@@ -69,7 +69,7 @@ public class ResultTo {
         if (o == null || getClass() != o.getClass()) return false;
         ResultTo resultTo = (ResultTo) o;
         return score == resultTo.score &&
-                Objects.equals(Id, resultTo.Id) &&
+                Objects.equals(id, resultTo.id) &&
                 Objects.equals(playerName, resultTo.playerName) &&
                 Objects.equals(date, resultTo.date) &&
                 Arrays.equals(gameboard, resultTo.gameboard);
@@ -77,7 +77,7 @@ public class ResultTo {
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(Id, playerName, score, date);
+        int result = Objects.hash(id, playerName, score, date);
         result = 31 * result + Arrays.hashCode(gameboard);
         return result;
     }
@@ -85,7 +85,7 @@ public class ResultTo {
     @Override
     public String toString() {
         return "ResultTo{" +
-                "Id=" + Id +
+                "Id=" + id +
                 ", playerName='" + playerName + '\'' +
                 ", score=" + score +
                 ", date=" + date +

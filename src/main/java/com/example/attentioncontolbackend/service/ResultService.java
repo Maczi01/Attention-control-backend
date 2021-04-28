@@ -21,9 +21,11 @@ public class ResultService implements ResultRepository {
     @Autowired
     public ResultService(ResultMapper resultMapper) {
         results = new ArrayList<>();
-        results.add(new ResultTo("Jack", 11, LocalDate.now(), table));
-        results.add(new ResultTo("Mick", 12, LocalDate.now(), table));
-        results.add(new ResultTo("Dave", 90, LocalDate.now().plusDays(1), table));
+        results.add(new ResultTo(1,"Jack", 11, LocalDate.now(), table));
+        results.add(new ResultTo(2,"Mick", 12, LocalDate.now(), table));
+        results.add(new ResultTo(3,"Dave", 90, LocalDate.now().plusDays(1), table));
+        results.add(new ResultTo(4,"Dave", 90, LocalDate.now().plusDays(1), table));
+        results.add(new ResultTo(5,"Dave", 90, LocalDate.now().plusDays(1), table));
         this.resultMapper = resultMapper;
     }
 
