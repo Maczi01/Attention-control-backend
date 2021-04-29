@@ -16,7 +16,7 @@ public class ResultService implements ResultRepository {
     private List<ResultTo> results;
     private ResultMapper resultMapper;
 
-    Integer[] table = {1, 2, 3, 4, 5, 5, 6, 7, 7, 8, 8, 9, 9};
+    Integer[] table = {1, 2, 3, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10,10};
 
     @Autowired
     public ResultService(ResultMapper resultMapper) {
