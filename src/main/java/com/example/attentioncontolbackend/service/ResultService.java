@@ -52,10 +52,11 @@ public class ResultService implements ResultRepository {
     }
 
     public ResultTo getPlayerById(Integer id) {
+        System.out.println(id);
 //        Long aLong = Long.valueOf(id);
 //        Optional<ResultTo> optionalResultTo = results.stream().filter(e -> e.getId() == aLong).findFirst();
 //        System.out.println(optionalResultTo);
 //        return resultTo.get();
-        return results.get(0);
+        return results.get(id);
     }
 }

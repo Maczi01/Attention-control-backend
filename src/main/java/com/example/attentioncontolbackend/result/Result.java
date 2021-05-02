@@ -1,11 +1,16 @@
 package com.example.attentioncontolbackend.result;
 
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Objects;
 
 public class Result {
 
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer Id;
     private String playerName;
     private int score;

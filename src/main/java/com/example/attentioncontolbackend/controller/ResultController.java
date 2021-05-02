@@ -25,7 +25,8 @@ public class ResultController {
     }
 
     @GetMapping("/{id}")
-    public ResultTo getPlayer(Integer id) {
+    public ResultTo getPlayer(@PathVariable Integer id) {
+        System.out.println(id);
         return resultService.getPlayerById(id);
     }
 
@@ -38,7 +39,7 @@ public class ResultController {
     @DeleteMapping("/{id}")
     public void deleteResult(@PathVariable String id) {
         System.out.println(id);
-        resultService.deleteResult(Long.valueOf(id));
+        resultService.deleteResult(Integer.valueOf(id));
     }
 
 }
