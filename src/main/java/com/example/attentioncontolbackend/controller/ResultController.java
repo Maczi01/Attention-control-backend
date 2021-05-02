@@ -41,5 +41,4 @@ public class ResultController {
         System.out.println(id);
         resultService.deleteResult(Integer.valueOf(id));
     }
-
 }
