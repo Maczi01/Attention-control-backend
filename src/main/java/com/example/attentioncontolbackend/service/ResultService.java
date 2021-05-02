@@ -34,10 +34,7 @@ public class ResultService implements ResultRepository {
     }
 
     public ResultTo addNewPlayer(ResultTo resultTo) {
-//        Player playerEntity = playerMapper.map2Entity(resultTo);
         save(resultTo);
-//        ResultTo playerTo1 = playerMapper.map2To(savedPlayer);
-        System.out.println(resultTo);
         return resultTo;
     }
 
@@ -52,11 +49,6 @@ public class ResultService implements ResultRepository {
     }
 
     public ResultTo getPlayerById(Integer id) {
-        System.out.println(id);
-//        Long aLong = Long.valueOf(id);
-//        Optional<ResultTo> optionalResultTo = results.stream().filter(e -> e.getId() == aLong).findFirst();
-//        System.out.println(optionalResultTo);
-//        return resultTo.get();
         return results.get(id);
     }
 }
