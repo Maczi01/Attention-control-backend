@@ -32,7 +32,6 @@ public class LogicGameTest {
 
         int[] noDuplicates = IntStream.of(array).distinct().toArray();
 
-
         // when // then
         assertThat(array.length).isEqualTo(noDuplicates.length);
     }

@@ -10,22 +10,24 @@ import java.util.Objects;
 public class Result {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
     private String playerName;
     private int score;
     private LocalDate date;
-    private int [] gameboard;
+    private int[] gameboard;
+    private double accuracy;
 
     public Result() {
     }
 
-    public Result(Integer id, String playerName, int score, LocalDate date, int[] gameboard) {
+    public Result(Integer id, String playerName, int score, LocalDate date, int[] gameboard, double accuracy) {
         Id = id;
         this.playerName = playerName;
         this.score = score;
         this.date = date;
         this.gameboard = gameboard;
+        this.accuracy = accuracy;
     }
 
     public Integer getId() {
@@ -66,6 +68,14 @@ public class Result {
 
     public void setGameboard(int[] gameboard) {
         this.gameboard = gameboard;
+    }
+
+    public double getAccuracy() {
+        return accuracy;
+    }
+
+    public void setAccuracy(double accuracy) {
+        this.accuracy = accuracy;
     }
 
     @Override

@@ -11,16 +11,18 @@ public class ResultTo {
     private int score;
     private LocalDate date;
     private Integer[] gameboard;
+    private double accuracy;
 
     public ResultTo() {
     }
 
-    public ResultTo(Integer id, String playerName, int score, LocalDate date, Integer[] gameboard) {
+    public ResultTo(Integer id, String playerName, int score, LocalDate date, Integer[] gameboard, double accuracy) {
         this.id = id;
         this.playerName = playerName;
         this.score = score;
         this.date = date;
         this.gameboard = gameboard;
+        this.accuracy = accuracy;
     }
 
     public Integer getId() {
@@ -61,6 +63,14 @@ public class ResultTo {
 
     public void setGameboard(Integer[] gameboard) {
         this.gameboard = gameboard;
+    }
+
+    public double getAccuracy() {
+        return accuracy;
+    }
+
+    public void setAccuracy(double accuracy) {
+        this.accuracy = accuracy;
     }
 
     @Override
