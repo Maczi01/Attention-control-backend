@@ -12,6 +12,9 @@ public class Game {
     private int counter = 0;
     private int endOfGameTime = 10;
 
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
 
     public Random getRand() {
         return rand;

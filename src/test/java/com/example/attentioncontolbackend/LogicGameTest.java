@@ -2,10 +2,9 @@ package com.example.attentioncontolbackend;
 
 
 import com.example.attentioncontolbackend.logic.Game;
-import com.example.attentioncontolbackend.service.NumbersService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.util.stream.IntStream;
 
@@ -13,8 +12,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class LogicGameTest {
 
+    Game game;
 
-    Game game = new Game();
+    @BeforeEach
+    public void setUp(){
+        game = new Game();
+    }
 
     @Test
     @DisplayName("Array length should be equal 100")
@@ -40,11 +43,11 @@ public class LogicGameTest {
 
     @Test
     @DisplayName("Numbers in array are lower than 100")
-    void numbersInArrayShouldBeLowerThan100(){
+    void numbersInArrayShouldBeLowerThan100() {
         // given
         int[] array = game.generateMixedArray();
 
-        int[] filteredArray = IntStream.of(array).filter(e -> e>=100).toArray();
+        int[] filteredArray = IntStream.of(array).filter(e -> e >= 100).toArray();
 
         // when // then
         assertThat(filteredArray.length).isEqualTo(0);
@@ -56,7 +59,7 @@ public class LogicGameTest {
         // given
         int[] array = game.generateMixedArray();
 
-        int[] filteredArray = IntStream.of(array).filter(e -> e<0).toArray();
+        int[] filteredArray = IntStream.of(array).filter(e -> e < 0).toArray();
 
         // when // then
         assertThat(filteredArray.length).isEqualTo(0);
@@ -74,11 +77,5 @@ public class LogicGameTest {
         assertThat(count).isEqualTo(1);
     }
 
-    @Test
-    void name() {
 
-        NumbersService numbersService = Mockito.mock(NumbersService.class);
-
-
-    }
 }
