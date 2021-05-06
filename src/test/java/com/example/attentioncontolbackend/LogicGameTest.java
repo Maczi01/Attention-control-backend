@@ -2,8 +2,10 @@ package com.example.attentioncontolbackend;
 
 
 import com.example.attentioncontolbackend.logic.Game;
+import com.example.attentioncontolbackend.service.NumbersService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.util.stream.IntStream;
 
@@ -72,4 +74,11 @@ public class LogicGameTest {
         assertThat(count).isEqualTo(1);
     }
 
+    @Test
+    void name() {
+
+        NumbersService numbersService = Mockito.mock(NumbersService.class);
+
+
+    }
 }
