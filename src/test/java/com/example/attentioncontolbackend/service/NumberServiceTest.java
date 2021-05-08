@@ -2,6 +2,7 @@ package com.example.attentioncontolbackend.service;
 
 import com.example.attentioncontolbackend.logic.Game;
 import com.example.attentioncontolbackend.logic.GameMapper;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -24,7 +25,8 @@ public class NumberServiceTest {
     GameMapper gameMapper;
 
     @Test
-    void name() {
+    @DisplayName("Result should be two")
+    void resultShouldBeTwo() {
 //        given
         when(game.getCounter()).thenReturn(2);
         NumbersService ns = new NumbersService(game, gameMapper);
@@ -34,6 +36,15 @@ public class NumberServiceTest {
         assertThat(counter).isEqualTo(2);
     }
 
+    @Test
+    void name() {
+        when(game.checkNumber("0")).thenReturn(true);
+        NumbersService ns = new NumbersService(game, gameMapper);
+
+        boolean b = ns.checkNumber("2");
+        assertThat(b).isTrue();
+
+    }
 
     //
 //
