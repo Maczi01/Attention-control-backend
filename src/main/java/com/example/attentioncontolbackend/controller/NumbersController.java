@@ -18,8 +18,8 @@ public class NumbersController {
     }
 
     @GetMapping()
-    public int[] getNumbers()  {
-        return numbersService.startGame();
+    public int[] getGameBoard()  {
+        return numbersService.getGameBoard();
     }
 
     @GetMapping("/time")

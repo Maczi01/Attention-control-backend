@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class LogicGameTest {
 
-    Game game;
+    private Game game;
 
     @BeforeEach
     public void setUp(){
@@ -67,12 +67,10 @@ public class LogicGameTest {
 
     @Test
     @DisplayName("Array should contain zero")
-    void arrayShouldContainZer() {
+    void arrayShouldContainZero() {
         // given
         int[] array = game.generateMixedArray();
-
         long count = IntStream.of(array).filter(e -> e == 0).count();
-
         // when // then
         assertThat(count).isEqualTo(1);
     }

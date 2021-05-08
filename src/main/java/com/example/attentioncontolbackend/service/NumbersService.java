@@ -20,7 +20,7 @@ public class NumbersService {
         return gameMapper.map(game);
     }
 
-    public int[] startGame() {
+    public int[] getGameBoard() {
         return game.generateMixedArray();
     }
 
