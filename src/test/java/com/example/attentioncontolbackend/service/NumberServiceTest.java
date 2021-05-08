@@ -39,10 +39,11 @@ public class NumberServiceTest {
     @Test
     void name() {
         when(game.checkNumber("0")).thenReturn(true);
+        when(game.checkNumber("1")).thenReturn(true);
         NumbersService ns = new NumbersService(game, gameMapper);
+        int b = ns.checkNumber().getCounter();
 
-        boolean b = ns.checkNumber("2");
-        assertThat(b).isTrue();
+        assertThat(b).isEqualTo(7);
 
     }
 

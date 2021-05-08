@@ -32,10 +32,6 @@ public class NumbersService {
         return game.checkNumber(p);
     }
 
-    public boolean checkGivenNumber(NumberTo numberTo) {
-        return game.checkGivenNumber(numberTo);
-    }
-
     public int getResult() {
         return game.getCounter();
     }
