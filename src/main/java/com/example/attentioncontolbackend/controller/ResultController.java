@@ -25,7 +25,7 @@ public class ResultController {
     }
 
     @GetMapping("/{id}")
-    public ResultTo getPlayer(@PathVariable Integer id) {
+    public ResultTo getResult(@PathVariable Integer id) {
         System.out.println(id);
         return resultService.getPlayerById(id);
     }

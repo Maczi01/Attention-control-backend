@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 public interface ResultRepository {
 
     void save(ResultTo resultTo);
+//    Result getPlayerById(Integer id);
 }
