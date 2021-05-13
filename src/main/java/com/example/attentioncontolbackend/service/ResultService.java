@@ -48,7 +48,7 @@ public class ResultService implements ResultRepository {
         return results.remove(optionalResultTo.get());
     }
 
-    public ResultTo getPlayerById(Integer id) {
+    public ResultTo getResultById(Integer id) {
         return results.get(id);
     }
 }
