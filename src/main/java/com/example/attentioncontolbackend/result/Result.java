@@ -1,28 +1,38 @@
 package com.example.attentioncontolbackend.result;
 
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.Objects;
+import java.util.List;
 
+@Entity
 public class Result {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
+    private Integer id;
     private String playerName;
     private int score;
     private LocalDate date;
-    private int[] gameboard;
+    @ElementCollection
+    private List<Integer> gameboard;
     private double accuracy;
 
     public Result() {
     }
 
-    public Result(Integer id, String playerName, int score, LocalDate date, int[] gameboard, double accuracy) {
-        Id = id;
+//    public Result(Integer id, String playerName, int score, LocalDate date, int[] gameboard, double accuracy) {
+//        Id = id;
+//        this.playerName = playerName;
+//        this.score = score;
+//        this.date = date;
+//        this.gameboard = gameboard;
+//        this.accuracy = accuracy;
+//    }
+
+
+
+    public Result(Integer id, String playerName, int score, LocalDate date, List<Integer> gameboard, double accuracy) {
+        this.id = id;
         this.playerName = playerName;
         this.score = score;
         this.date = date;
@@ -31,11 +41,11 @@ public class Result {
     }
 
     public Integer getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Integer id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getPlayerName() {
@@ -62,11 +72,11 @@ public class Result {
         this.date = date;
     }
 
-    public int[] getGameboard() {
+    public List<Integer> getGameboard() {
         return gameboard;
     }
 
-    public void setGameboard(int[] gameboard) {
+    public void setGameboard(List<Integer> gameboard) {
         this.gameboard = gameboard;
     }
 
@@ -76,35 +86,5 @@ public class Result {
 
     public void setAccuracy(double accuracy) {
         this.accuracy = accuracy;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Result result = (Result) o;
-        return score == result.score &&
-                Objects.equals(Id, result.Id) &&
-                Objects.equals(playerName, result.playerName) &&
-                Objects.equals(date, result.date) &&
-                Arrays.equals(gameboard, result.gameboard);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Objects.hash(Id, playerName, score, date);
-        result = 31 * result + Arrays.hashCode(gameboard);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Result{" +
-                "Id=" + Id +
-                ", playerName='" + playerName + '\'' +
-                ", score=" + score +
-                ", date=" + date +
-                ", gameboard=" + Arrays.toString(gameboard) +
-                '}';
     }
 }
