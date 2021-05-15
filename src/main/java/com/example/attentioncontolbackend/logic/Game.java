@@ -16,10 +16,6 @@ public class Game {
         this.counter = counter;
     }
 
-    public Random getRand() {
-        return rand;
-    }
-
     public int[] getBoard() {
         return board;
     }
