@@ -13,30 +13,21 @@ public class Result {
     private String playerName;
     private int score;
     private LocalDate date;
+//    @CollectionTable(name = "user_gameBoard", joinColumns = @JoinColumn(name = "result_id"))
     @ElementCollection
-    private List<Integer> gameboard;
+    @Column(name = "game_board")
+    private List<Integer> gameBoard;
     private double accuracy;
 
     public Result() {
     }
 
-//    public Result(Integer id, String playerName, int score, LocalDate date, int[] gameboard, double accuracy) {
-//        Id = id;
-//        this.playerName = playerName;
-//        this.score = score;
-//        this.date = date;
-//        this.gameboard = gameboard;
-//        this.accuracy = accuracy;
-//    }
-
-
-
-    public Result(Integer id, String playerName, int score, LocalDate date, List<Integer> gameboard, double accuracy) {
+    public Result(Integer id, String playerName, int score, LocalDate date, List<Integer> gameBoard, double accuracy) {
         this.id = id;
         this.playerName = playerName;
         this.score = score;
         this.date = date;
-        this.gameboard = gameboard;
+        this.gameBoard = gameBoard;
         this.accuracy = accuracy;
     }
 
@@ -72,12 +63,12 @@ public class Result {
         this.date = date;
     }
 
-    public List<Integer> getGameboard() {
-        return gameboard;
+    public List<Integer> getgameBoard() {
+        return gameBoard;
     }
 
-    public void setGameboard(List<Integer> gameboard) {
-        this.gameboard = gameboard;
+    public void setgameBoard(List<Integer> gameBoard) {
+        this.gameBoard = gameBoard;
     }
 
     public double getAccuracy() {
