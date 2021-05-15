@@ -28,15 +28,15 @@ public class ResultService {
                 .collect(Collectors.toList());
     }
 
-    public ResultTo addNewPlayer(ResultTo resultTo) {
+    public ResultTo addNewResult(ResultTo resultTo) {
+        System.out.println(resultTo);
         Result resultEntity = resultMapper.map2Entity(resultTo);
         Result savedResult = resultRepository.save(resultEntity);
         return resultMapper.map2To(savedResult);
     }
 
     public void deleteResult(Integer id) {
-        Result result = resultRepository.findById(id).get();
-        resultRepository.delete(result);
+        resultRepository.delete(resultRepository.findById(id).get());
     }
 
     public ResultTo getResultById(Integer id) {

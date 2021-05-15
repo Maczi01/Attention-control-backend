@@ -32,8 +32,7 @@ public class ResultController {
 
     @PostMapping()
     public ResultTo addPlayer(@RequestBody ResultTo resultTo) {
-        System.out.println(resultTo);
-        return resultService.addNewPlayer(resultTo);
+        return resultService.addNewResult(resultTo);
     }
 
     @DeleteMapping("/{id}")

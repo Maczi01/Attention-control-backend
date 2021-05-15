@@ -9,7 +9,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,11 +30,11 @@ class ResultServiceTest {
     void setUp() {
         results = new ArrayList<>();
         Integer[] table = {1, 2, 3, 4, 5, 5, 6, 7, 7, 8, 8, 9, 10, 10};
-        results.add(new ResultTo(1, "Jack", 11, LocalDate.now(), table, 0.89));
-        results.add(new ResultTo(2, "Mick", 12, LocalDate.now(), table, 0.89));
-        results.add(new ResultTo(3, "Dave", 90, LocalDate.now().plusDays(1), table, 0.89));
-        results.add(new ResultTo(4, "Dave", 90, LocalDate.now().plusDays(1), table, 0.89));
-        results.add(new ResultTo(5, "Dave", 90, LocalDate.now().plusDays(1), table, 0.89));
+//        results.add(new ResultTo(1, "Jack", 11, LocalDate.now(), table, 0.89));
+//        results.add(new ResultTo(2, "Mick", 12, LocalDate.now(), table, 0.89));
+//        results.add(new ResultTo(3, "Dave", 90, LocalDate.now().plusDays(1), table, 0.89));
+//        results.add(new ResultTo(4, "Dave", 90, LocalDate.now().plusDays(1), table, 0.89));
+//        results.add(new ResultTo(5, "Dave", 90, LocalDate.now().plusDays(1), table, 0.89));
     }
 
     @Test

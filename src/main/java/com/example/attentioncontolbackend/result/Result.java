@@ -13,8 +13,9 @@ public class Result {
     private String playerName;
     private int score;
     private LocalDate date;
+//    @CollectionTable(name = "gameBoard", joinColumns = @JoinColumn(name = "result_id"))
     @ElementCollection
-    @Column(name = "game_board")
+//    @Column(name = "game_board")
     private List<Integer> gameBoard;
     private double accuracy;
 
