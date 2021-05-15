@@ -68,12 +68,4 @@ public class Game {
         }
         return false;
     }
-
-    public boolean checkGivenNumber(NumberTo numberTo) {
-        if (numberTo.getIndex() == counter) {
-            counter++;
-            return true;
-        }
-        return false;
-    }
 }
