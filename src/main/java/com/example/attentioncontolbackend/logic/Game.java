@@ -53,7 +53,7 @@ public class Game {
     public void initGame() {
         this.board = generateMixedArray();
         this.counter = 0;
-        this.endOfGameTime = 90;
+        this.endOfGameTime = 10;
     }
 
     public boolean checkNumber(String p) {
