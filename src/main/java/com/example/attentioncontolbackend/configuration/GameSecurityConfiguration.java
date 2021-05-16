@@ -3,6 +3,7 @@ package com.example.attentioncontolbackend.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -17,11 +18,18 @@ public class GameSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.DELETE, "/api/results/**").hasRole("ADMIN")
                 .antMatchers("/api/**").permitAll()
-//                .antMatchers(HttpMethod.GET, "/api/time").permitAll()
-//                .antMatchers(HttpMethod.POST, "/api").permitAll()
-////                .antMatchers(HttpMethod.GET, "/api/results").permitAll()
-//                .antMatchers(HttpMethod.GET, "/api/score").permitAll()
                 .anyRequest()
-                .authenticated();
+                .authenticated()
+                .and()
+                .formLogin().loginPage("/login").permitAll();
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .inMemoryAuthentication()
+                .withUser("mati@mati.pl")
+                .password("{noop}xxx")
+                .roles("ADMIN");
     }
 }
