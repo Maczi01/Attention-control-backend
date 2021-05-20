@@ -21,8 +21,9 @@ public class GameSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .authenticated()
                 .and()
-                .formLogin().loginPage("/login").permitAll();
-    }
+                .formLogin().loginPage("/login")
+                .defaultSuccessUrl("/admin",true)
+;    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
