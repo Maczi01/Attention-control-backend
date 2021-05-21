@@ -2,11 +2,9 @@ package com.example.attentioncontolbackend.configuration;
 
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @EnableWebMvc
@@ -19,11 +17,11 @@ public class GameSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .httpBasic().and()
                 .csrf().disable()
-                .addFilterBefore(new CorsFilter(), ChannelProcessingFilter.class)
+//                .addFilterBefore(new CorsFilter(), ChannelProcessingFilter.class)
 
                 .authorizeRequests()
-                .antMatchers(HttpMethod.DELETE, "/api/results/**")
-                .hasRole("ADMIN")
+//                .antMatchers(HttpMethod.DELETE, "/api/results/**")
+//                .hasRole("ADMIN")
                 .antMatchers("/api/**").permitAll()
                 .anyRequest()
                 .authenticated()
