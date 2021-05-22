@@ -1,6 +1,5 @@
 package com.example.attentioncontolbackend.controller;
 
-import com.example.attentioncontolbackend.configuration.JwtTokenProvider;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -11,17 +10,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping("/api")
+//@RestController
+//@CrossOrigin(origins = "*", maxAge = 3600)
+//@RequestMapping("/api")
 public class LoginController {
 
-    @Autowired
-    private JwtTokenProvider tokenProvider;
+//    @Autowired
 
     @Autowired
     @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
+
+
 
     @PostMapping(value = "/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody User user) throws Exception {
