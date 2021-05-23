@@ -1,24 +1,70 @@
 package com.example.attentioncontolbackend.controller;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
 
-//@RestController
-//@CrossOrigin(origins = "*", maxAge = 3600)
-//@RequestMapping("/api")
+@RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/api")
 public class LoginController {
 
 //    @Autowired
 
+//    @Autowired
+//    @Qualifier("authenticationManagerBean")
+//    private AuthenticationManager authenticationManager;
+
+    private final AuthenticationManager authenticationManager;
+
     @Autowired
-    @Qualifier("authenticationManagerBean")
-    private AuthenticationManager authenticationManager;
+    public LoginController(AuthenticationManager authenticationManager) {
+        this.authenticationManager = authenticationManager;
+    }
+
+    @Value("${jwt.secret-key}")
+    private String secretKey;
+
+    @PostMapping(value = "/login")
+    public String createAuthenticationToken(@RequestBody User user) throws Exception {
+        try {
+            Authentication authenticate = authenticationManager
+                    .authenticate(
+                            new UsernamePasswordAuthenticationToken(
+                                    user.getEmail(), user.getPassword()
+                            )
+                    );
+
+
+            System.out.println( "Principal" + authenticate.getPrincipal());
 
 
 
+            Claims claims = Jwts.claims().setSubject(user.getEmail());
+            claims.put("userEmail", user.getEmail() + "");
+            claims.put("role", "ADMIN");
+            String xxx = Jwts.builder()
+                    .setClaims(claims)
+                    .signWith(SignatureAlgorithm.HS512, secretKey)
+                    .compact();
+            System.out.println("Gottcha!");
+            return xxx;
+        } catch (Exception e) {
+            System.out.println("Nope");
+            return "nope";
+        }
+    }
+
+
+//
 //    @PostMapping(value = "/login")
-//    public ResponseEntity<?> createAuthenticationToken(@RequestBody User user) throws Exception {
+//    public String createAuthenticationToken(@RequestBody User user) throws Exception {
 //        Claims claims = Jwts.claims().setSubject(user.getEmail());
 //        claims.put("userEmail", user.getEmail() + "");
 //        claims.put("role", "ADMIN");
@@ -26,9 +72,9 @@ public class LoginController {
 //                .setClaims(claims)
 //                .signWith(SignatureAlgorithm.HS512, "xxx")
 //                .compact();
-//
-//        return new ResponseEntity<String>(xxx, HttpStatus.ACCEPTED);
-
+//        System.out.println("Gottcha!");
+//        return xxx;
+//    }
 //
 //
 //
@@ -51,7 +97,7 @@ public class LoginController {
 //            return new ResponseEntity<String>(jsonObject.toString(), HttpStatus.UNAUTHORIZED);
 //        }
 //        return null;
-    }
+}
 
 //    private void authenticate(String username, String password) throws Exception {
 //        Objects.requireNonNull(username);

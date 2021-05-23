@@ -4,6 +4,7 @@ package com.example.attentioncontolbackend.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -15,19 +16,24 @@ public class GameSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 
     //}
-    private final RestAuthenticationSuccessHandler authenticationSuccessHandler;
-    private final RestAuthenticationFailureHandler authenticationFailureHandler;
-    private final String secret;
+//    private final RestAuthenticationSuccessHandler authenticationSuccessHandler;
+//    private final RestAuthenticationFailureHandler authenticationFailureHandler;
+//    private final String secret;
 
 
-    public GameSecurityConfiguration(RestAuthenticationSuccessHandler authenticationSuccessHandler,
-                                     RestAuthenticationFailureHandler authenticationFailureHandler
+//    public GameSecurityConfiguration(RestAuthenticationSuccessHandler authenticationSuccessHandler,
+//                                     RestAuthenticationFailureHandler authenticationFailureHandler
 //                                     @Value("${jwt.secret}") String secret) {
 //                                      String secret) {
-    ) {
-        this.authenticationSuccessHandler = authenticationSuccessHandler;
-        this.authenticationFailureHandler = authenticationFailureHandler;
-        this.secret = "xxx";
+//    ) {
+//        this.authenticationSuccessHandler = authenticationSuccessHandler;
+//        this.authenticationFailureHandler = authenticationFailureHandler;
+//        this.secret = "xxx";
+//    }
+
+    @Override @Bean
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 
     @Override
@@ -35,9 +41,9 @@ public class GameSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http
                 .authorizeRequests()
-                .antMatchers(HttpMethod.DELETE, "/api/results").hasRole("ADMIN")
-                .antMatchers(HttpMethod.GET, "/api/**")
-                .permitAll();
+                .antMatchers(HttpMethod.DELETE, "/api/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/api/**").permitAll()
+                ;
     }
 
     ////                .and()
@@ -54,14 +60,14 @@ public class GameSecurityConfiguration extends WebSecurityConfigurerAdapter {
 ////                .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED));
 //    }
 //
-    @Bean
-    public JsonObjectAuthenticationFilter authenticationFilter() throws Exception {
-        JsonObjectAuthenticationFilter filter = new JsonObjectAuthenticationFilter();
-        filter.setAuthenticationSuccessHandler(authenticationSuccessHandler);
-        filter.setAuthenticationFailureHandler(authenticationFailureHandler);
-        filter.setAuthenticationManager(super.authenticationManager());
-        return filter;
-    }
+//    @Bean
+//    public JsonObjectAuthenticationFilter authenticationFilter() throws Exception {
+//        JsonObjectAuthenticationFilter filter = new JsonObjectAuthenticationFilter();
+//        filter.setAuthenticationSuccessHandler(authenticationSuccessHandler);
+//        filter.setAuthenticationFailureHandler(authenticationFailureHandler);
+//        filter.setAuthenticationManager(super.authenticationManager());
+//        return filter;
+//    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder builder) throws Exception {
