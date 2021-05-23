@@ -1,64 +1,70 @@
 package com.example.attentioncontolbackend.controller;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.attentioncontolbackend.configuration.JwtTokenService;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@RestController
+//@RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/api")
 public class LoginController {
 
+    //    @Autowired
+//    private JwtTokenService jwtTokenService;
+//    private final AuthenticationManager authenticationManager;
+//
 //    @Autowired
+//    public LoginController(JwtTokenService jwtTokenService, AuthenticationManager authenticationManager) {
+//        this.jwtTokenService = jwtTokenService;
+//        this.authenticationManager = authenticationManager;
+//    }
 
 //    @Autowired
 //    @Qualifier("authenticationManagerBean")
 //    private AuthenticationManager authenticationManager;
 
-    private final AuthenticationManager authenticationManager;
 
-    @Autowired
-    public LoginController(AuthenticationManager authenticationManager) {
-        this.authenticationManager = authenticationManager;
-    }
+//    @Autowired
+//    public LoginController(AuthenticationManager authenticationManager) {
+//        this.authenticationManager = authenticationManager;
+//    }
 
     @Value("${jwt.secret-key}")
     private String secretKey;
 
     @PostMapping(value = "/login")
     public String createAuthenticationToken(@RequestBody User user) throws Exception {
-        try {
-            Authentication authenticate = authenticationManager
-                    .authenticate(
-                            new UsernamePasswordAuthenticationToken(
-                                    user.getEmail(), user.getPassword()
-                            )
-                    );
-
-
-            System.out.println( "Principal" + authenticate.getPrincipal());
-
-
-
-            Claims claims = Jwts.claims().setSubject(user.getEmail());
-            claims.put("userEmail", user.getEmail() + "");
-            claims.put("role", "ADMIN");
-            String xxx = Jwts.builder()
-                    .setClaims(claims)
-                    .signWith(SignatureAlgorithm.HS512, secretKey)
-                    .compact();
-            System.out.println("Gottcha!");
-            return xxx;
-        } catch (Exception e) {
-            System.out.println("Nope");
-            return "nope";
-        }
+//        return JwtTokenService.generateToken(user)
+//        jwtTokenService.getClaimsFromToken()
+//        return jwtTokenService.generateToken(user)
+//        try {
+//            Authentication authenticate = authenticationManager
+//                    .authenticate(
+//                            new UsernamePasswordAuthenticationToken(
+//                                    user.getEmail(), user.getPassword()
+//                            )
+//                    );
+//
+//
+//            System.out.println("Principal" + authenticate.getPrincipal());
+//
+//
+//            Claims claims = Jwts.claims().setSubject(user.getEmail());
+//            claims.put("email", user.getEmail());
+//            claims.put("role", Role.ADMIN);
+//            String xxx = Jwts.builder()
+//                    .setClaims(claims)
+//                    .signWith(SignatureAlgorithm.HS512, secretKey)
+//                    .compact();
+//            System.out.println("Gottcha!");
+//            return xxx;
+//        } catch (Exception e) {
+//            System.out.println("Nope");
+//            return "nope";
+//        }
     }
 
 

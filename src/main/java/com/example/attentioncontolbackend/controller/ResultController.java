@@ -1,12 +1,11 @@
 package com.example.attentioncontolbackend.controller;
 
-import com.example.attentioncontolbackend.configuration.Role;
 import com.example.attentioncontolbackend.result.ResultTo;
 import com.example.attentioncontolbackend.service.ResultService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
@@ -37,7 +36,7 @@ public class ResultController {
         return resultService.addNewResult(resultTo);
     }
 
-    @RolesAllowed(Role.ADMIN)
+    @PreAuthorize("isAuthenticated() || hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public void deleteResult(@PathVariable String id) {
         System.out.println(id);
