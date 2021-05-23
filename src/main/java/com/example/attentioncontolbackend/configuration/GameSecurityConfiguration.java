@@ -13,6 +13,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity(debug = false)
 public class GameSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+
+    //}
     private final RestAuthenticationSuccessHandler authenticationSuccessHandler;
     private final RestAuthenticationFailureHandler authenticationFailureHandler;
     private final String secret;
@@ -34,22 +36,24 @@ public class GameSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(HttpMethod.DELETE, "/api/results").hasRole("ADMIN")
-                .antMatchers(HttpMethod.GET,"/api/**")
-                .permitAll()
-//                .and()
-//
-//                .formLogin("/login");
-
-        ;
-//                .and()
-//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//                .and()
-//                .addFilter(authenticationFilter())
-//                .addFilter(new JwtAuthorizationFilter(authenticationManager(), super.userDetailsService(), secret))
-//                .exceptionHandling()
-//                .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED));
+                .antMatchers(HttpMethod.GET, "/api/**")
+                .permitAll();
     }
 
+    ////                .and()
+////
+////                .formLogin("/login");
+//
+//        ;
+////                .and()
+////                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+////                .and()
+////                .addFilter(authenticationFilter())
+////                .addFilter(new JwtAuthorizationFilter(authenticationManager(), super.userDetailsService(), secret))
+////                .exceptionHandling()
+////                .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED));
+//    }
+//
     @Bean
     public JsonObjectAuthenticationFilter authenticationFilter() throws Exception {
         JsonObjectAuthenticationFilter filter = new JsonObjectAuthenticationFilter();
@@ -67,3 +71,4 @@ public class GameSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .roles("ADMIN");
     }
 }
+//}

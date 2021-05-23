@@ -1,14 +1,8 @@
 package com.example.attentioncontolbackend.controller;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.web.bind.annotation.*;
 
 //@RestController
 //@CrossOrigin(origins = "*", maxAge = 3600)
@@ -23,17 +17,17 @@ public class LoginController {
 
 
 
-    @PostMapping(value = "/login")
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody User user) throws Exception {
-        Claims claims = Jwts.claims().setSubject(user.getEmail());
-        claims.put("userEmail", user.getEmail() + "");
-        claims.put("role", "ADMIN");
-        String xxx = Jwts.builder()
-                .setClaims(claims)
-                .signWith(SignatureAlgorithm.HS512, "xxx")
-                .compact();
-
-        return new ResponseEntity<String>(xxx, HttpStatus.ACCEPTED);
+//    @PostMapping(value = "/login")
+//    public ResponseEntity<?> createAuthenticationToken(@RequestBody User user) throws Exception {
+//        Claims claims = Jwts.claims().setSubject(user.getEmail());
+//        claims.put("userEmail", user.getEmail() + "");
+//        claims.put("role", "ADMIN");
+//        String xxx = Jwts.builder()
+//                .setClaims(claims)
+//                .signWith(SignatureAlgorithm.HS512, "xxx")
+//                .compact();
+//
+//        return new ResponseEntity<String>(xxx, HttpStatus.ACCEPTED);
 
 //
 //
@@ -82,6 +76,6 @@ public class LoginController {
 //                .setExpiration(new Date(l + 50000))
 //                .signWith(SignatureAlgorithm.HS512, user.getPassword())
 //                .compact();
-}
+
 
 
